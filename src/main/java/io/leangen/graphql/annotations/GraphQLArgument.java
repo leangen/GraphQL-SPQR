@@ -13,7 +13,7 @@ import java.lang.annotation.Target;
 @Target(ElementType.PARAMETER)
 public @interface GraphQLArgument {
 
-    String name();
+    String name() default "";
 
     String description() default "";
 
