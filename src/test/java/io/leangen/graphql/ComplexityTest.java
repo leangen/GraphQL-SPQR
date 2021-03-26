@@ -79,6 +79,15 @@ public class ComplexityTest {
             "    }" +
             "  }" +
             "}";
+    private static final String typenameQuery = "{" +
+            "  pet(cat: true) {" +
+            "    __typename" +
+            "    sound" +
+            "    owner {" +
+            "       name" +
+            "    }" +
+            "  }" +
+            "}";
 
     private static final String branchingFragmentQuery = "{" +
             "  pet(cat: true) {" +
@@ -164,6 +173,11 @@ public class ComplexityTest {
     @Test
     public void branchingFragmentComplexityTest() {
         testComplexity(new PetService(), branchingFragmentQuery, 6, 7);
+    }
+
+    @Test
+    public void typenameComplexityTest() {
+        testComplexity(new PetService(), typenameQuery, 3, 4);
     }
 
     @Test
